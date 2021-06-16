@@ -525,7 +525,7 @@ class UnixSocketController(  # pragma: no-unixsock
 class UnthreadedController(InetMixin, BaseUnthreadedController):
     """Provides an unthreaded controller that listens on an INET endpoint"""
 
-    pass
+    pass # noqa: PIE790
 
 
 @public
@@ -534,4 +534,4 @@ class UnixSocketUnthreadedController(  # pragma: no-unixsock
 ):
     """Provides an unthreaded controller that listens on a Unix Socket file"""
 
-    pass
+    pass # noqa: PIE790
