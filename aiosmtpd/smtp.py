@@ -791,7 +791,7 @@ class SMTP(asyncio.StreamReaderProtocol):
         :return: True if AUTH is needed
         """
         if self._auth_required and not self.session.authenticated:
-            log.info(f'{caller_method}: Authentication required')
+            log.info('%s: Authentication required', caller_method)
             await self.push('530 5.7.0 Authentication required')
             return True
         return False
