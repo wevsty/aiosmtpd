@@ -319,7 +319,7 @@ class ProxyData:
         :param log_prefix: If True, add "PROXY error:" prefix to log message
         """
         if log_prefix:
-            log.warning(f"PROXY error: {error_msg}")
+            log.warning("PROXY error: %s", error_msg)
         else:
             log.warning(error_msg)
         self.error = error_msg
