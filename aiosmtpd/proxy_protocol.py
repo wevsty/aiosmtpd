@@ -264,7 +264,8 @@ class ProxyData:
     """
     Represents data received during PROXY Protocol Handshake, in an already-parsed form
     """
-
+    
+    # pytype: disable=annotation-type-mismatch
     version: Optional[int] = attr.ib(kw_only=True, init=True)
     """PROXY Protocol version; None if not recognized/malformed"""
     command: Optional[V2_CMD] = _anoinit(default=None)
@@ -298,7 +299,8 @@ class ProxyData:
     If not an empty string, contains the error encountered when parsing
     """
     _tlv: Optional[ProxyTLV] = _anoinit(default=None)
-
+    # pytype: enable=annotation-type-mismatch
+    
     @property
     def valid(self) -> bool:
         return not (self.error or self.version is None or self.protocol is None)
