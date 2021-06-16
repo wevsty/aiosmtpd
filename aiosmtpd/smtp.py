@@ -40,7 +40,7 @@ from aiosmtpd.proxy_protocol import ProxyData, get_proxy
 
 # region #### Custom Data Types #######################################################
 
-class _Missing:
+class _Missing: # noqa: SIM119
     def __repr__(self) -> str:
         return "MISSING"
 
