@@ -88,13 +88,14 @@ def is_unspecified_address(address: str) -> bool:
 @public
 def convert_unspecified_to_localhost(
         address: str
-) -> Literal["::1", "127.0.0.1"]:
+) -> str:
+    localhost = get_localhost()
     address_dict = {
-        "": get_localhost(),
+        "": localhost,
         "0.0.0.0": "127.0.0.1", # nosec
         "::": "::1", # nosec
     }
-    return address_dict.get(address, get_localhost())
+    return str(address_dict.get(address, localhost))
 
 
 class _FakeServer(asyncio.StreamReaderProtocol):
